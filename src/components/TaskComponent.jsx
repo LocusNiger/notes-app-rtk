@@ -10,17 +10,42 @@ export default function TaskComponent({ task }) {
   const handleComplete = (id) => {
     dispatch(completeTask(id));
   };
-
+  /* Función que retorna un badge dependiendo el nivel de la tarea */
   const taskLevelBadge = () => {
     switch (task.level) {
       case 1:
-        return <strong className="rounded bg-green-100 px-3 py-1.5 text-xs font-medium text-green-700">Normal</strong>;
+        return (
+          <strong
+            className={
+              "rounded bg-green-100 px-3 py-1.5 text-xs font-medium text-green-700" +
+              (task.completed ? " line-through" : "")
+            }
+          >
+            Normal
+          </strong>
+        );
       case 2:
         return (
-          <strong className="rounded bg-yellow-200 px-3 py-1.5 text-xs font-medium text-yellow-700">Important</strong>
+          <strong
+            className={
+              "rounded bg-yellow-200 px-3 py-1.5 text-xs font-medium text-yellow-700" +
+              (task.completed ? " line-through" : "")
+            }
+          >
+            Important
+          </strong>
         );
       case 3:
-        return <strong className="rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700">Urgent</strong>;
+        return (
+          <strong
+            className={
+              "rounded bg-red-100 px-3 py-1.5 text-xs font-medium text-red-700" +
+              (task.completed ? " line-through" : "")
+            }
+          >
+            Urgent
+          </strong>
+        );
       default:
         break;
     }
@@ -66,14 +91,14 @@ export default function TaskComponent({ task }) {
 
   return (
     <tr>
-      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-        <span>{task.title}</span>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700 border font-bold">
+        <span className={task.completed ? "line-through" : ""}>{task.title}</span>
       </td>
-      <td className="whitespace-nowrap px-4 py-2 text-gray-700">
-        <span>{task.description}</span>
+      <td className="whitespace-nowrap px-4 py-2 text-gray-700 border">
+        <span className={task.completed ? "line-through" : ""}>{task.description}</span>
       </td>
-      <td className="whitespace-nowrap px-4 py-2">{taskLevelBadge()}</td>
-      <td className="whitespace-nowrap px-4 py-2 flex justify-around">
+      <td className="whitespace-nowrap px-4 py-2 border">{taskLevelBadge()}</td>
+      <td className="whitespace-nowrap px-4 py-2 flex justify-around border">
         {taskCompletedIcon()}
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +114,9 @@ export default function TaskComponent({ task }) {
             clipRule="evenodd"
           />
         </svg>
-        <Link to={`/edit-task/${task.id}`}>Edit</Link>
+        <Link className="underline uppercase" to={`/edit-task/${task.id}`}>
+          Edit
+        </Link>
       </td>
     </tr>
   );
