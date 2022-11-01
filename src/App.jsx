@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import TaskForm from "./components/taskForm";
-import TaskList from "./components/taskList";
+import TaskForm from "./components/TaskForm";
+import TaskList from "./components/TaskList";
 function App() {
   return (
     <div className="App">
