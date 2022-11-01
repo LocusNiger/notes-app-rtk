@@ -6,21 +6,21 @@ const initialState = [
     title: "Task 1",
     description: "Task 1 description",
     completed: false,
-    level: 1,
+    level: "normal",
   },
   {
     id: "2",
     title: "Task 2",
     description: "Task 2 description",
     completed: false,
-    level: 2,
+    level: "important",
   },
   {
     id: "3",
     title: "Task 3",
     description: "Task 3 description",
     completed: false,
-    level: 3,
+    level: "urgent",
   },
 ];
 
@@ -41,11 +41,12 @@ export const taskSlice = createSlice({
       }
     },
     editTask: (state, action) => {
-      const { id, title, description } = action.payload;
+      const { id, title, description, level } = action.payload;
       const foundTask = state.find((task) => task.id === id);
       if (foundTask) {
         foundTask.title = title;
         foundTask.description = description;
+        foundTask.level = level;
       }
     },
     completeTask: (state, action) => {

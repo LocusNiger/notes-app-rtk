@@ -13,7 +13,7 @@ export default function TaskComponent({ task }) {
   /* Función que retorna un badge dependiendo el nivel de la tarea */
   const taskLevelBadge = () => {
     switch (task.level) {
-      case 1:
+      case "normal":
         return (
           <strong
             className={
@@ -24,7 +24,7 @@ export default function TaskComponent({ task }) {
             Normal
           </strong>
         );
-      case 2:
+      case "important":
         return (
           <strong
             className={
@@ -35,7 +35,7 @@ export default function TaskComponent({ task }) {
             Important
           </strong>
         );
-      case 3:
+      case "urgent":
         return (
           <strong
             className={
