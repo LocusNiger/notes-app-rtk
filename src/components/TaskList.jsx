@@ -7,9 +7,11 @@ export default function TaskList() {
   if (tasksState.length > 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 my-10">
-        <header>
-          <h1 className="text-3xl font-bold underline">Tasks: {tasksState.length}</h1>
-          <Link to="/create-task">Create task</Link>
+        <header className="flex flex-col gap-5">
+          <h1 className="text-3xl font-bold underline">My tasks: {tasksState.length}</h1>
+          <Link to="/create-task" className="btn btn-outline ">
+            Create task
+          </Link>
         </header>
         <div className="w-full overflow-hidden overflow-x-auto rounded-lg  flex justify-center items-center">
           <table className="w-4/5 divide-y divide-gray-200 text-sm ">
@@ -37,10 +39,10 @@ export default function TaskList() {
     );
   } else {
     return (
-      <div className="w-full flex flex-col justify-center">
-        <h1>Hey, looks like you're up to date.</h1>
+      <div className="flex flex-col items-center justify-center gap-4 my-10">
+        <h1 className="text-3xl font-bold">Hey, looks like you're up to date.</h1>
         <div>
-          <Link to="/create-task" className="underline font-bold text-2xl">
+          <Link to="/create-task" className="btn btn-ghost font-bold text-2xl">
             New task
           </Link>
         </div>
