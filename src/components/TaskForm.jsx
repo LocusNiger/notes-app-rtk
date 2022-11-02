@@ -53,19 +53,19 @@ export default function TaskForm() {
       <div className="w-1/2">
         <form className="flex flex-col max-w-2xl gap-3 p-6" onSubmit={handleSubmit}>
           <input
+            name="title"
             type="text"
             placeholder="Title..."
-            name="title"
             onChange={handleChange}
             value={task.title}
             className="input input-bordered w-full "
           ></input>
           <textarea
-            className="textarea textarea-bordered"
             name="description"
+            placeholder="Description..."
             onChange={handleChange}
             value={task.description}
-            placeholder="Description..."
+            className="textarea textarea-bordered"
           ></textarea>
           <div className=" flex justify-between items-center">
             <select className="select select-bordered select-sm w-3/4" onChange={handleChange} name="level">
