@@ -4,6 +4,7 @@ import TaskComponent from "./TaskComponent";
 
 export default function TaskList() {
   const tasksState = useSelector((state) => state.tasks);
+
   if (tasksState.length > 0) {
     return (
       <div className="flex flex-col items-center justify-center gap-4 my-10">

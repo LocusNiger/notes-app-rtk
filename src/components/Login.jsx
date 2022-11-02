@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { login } from "../features/auth/authSlice";
 
@@ -9,7 +9,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const userStatus = useSelector((state) => state.user);
 
+  //Seteo los datos en el estado interno del componente
   const handleChange = (e) => {
     switch (e.target.name) {
       case "name":
