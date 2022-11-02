@@ -4,29 +4,36 @@ import { useNavigate } from "react-router-dom";
 import { login } from "../features/auth/authSlice";
 
 const Login = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-    name: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setUser({
-      [e.target.name]: e.target.value,
-    });
+    switch (e.target.name) {
+      case "name":
+        setName(e.target.value);
+      case "email":
+        setEmail(e.target.value);
+      case "password":
+        setPassword(e.target.value);
+      default:
+        break;
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setUser({
-      ...user,
-      loggedIn: true,
-    });
-    console.log(user);
-    // dispatch(login(user));
-    // navigate("/my-tasks");
+    dispatch(
+      login({
+        name,
+        email,
+        password,
+        loggedIn: true,
+      })
+    );
+    navigate("/my-tasks");
   };
 
   return (
