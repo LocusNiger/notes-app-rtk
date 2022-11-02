@@ -9,7 +9,7 @@ export default function TaskList() {
       <div className="flex flex-col items-center justify-center gap-4 my-10">
         <header className="flex flex-col gap-5">
           <h1 className="text-3xl font-bold underline">My tasks: {tasksState.length}</h1>
-          <Link to="/create-task" className="btn btn-outline ">
+          <Link to="/create-task" className="btn btn-outline">
             Create task
           </Link>
         </header>

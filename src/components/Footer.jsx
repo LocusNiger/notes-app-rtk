@@ -16,7 +16,7 @@ export default function Footer() {
         <p> Copyright &copy; {new Date().getFullYear()} - All rights reserved</p>
       </div>
       <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end px-4 ">
-        <a href="https://linktr.ee/ivansanchez.dev" target="_blank" rel="noopener noreferrer">
+        <a href="https://linktr.ee/ivansanchez.dev" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
